@@ -15,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
+  String teg = "one";
   List<AssetImage>img=[
     const AssetImage("assets/image/img_kurtka_yupqa.png"),
     const AssetImage("assets/image/img_cap.png"),
@@ -157,15 +157,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                   children: [
                                     Expanded(
                                       flex: 4,
-                                      child: Hero(
-                                        tag: "one",
-                                        child: Material(
-                                          borderRadius: const BorderRadius.all(Radius.circular(10)),
-                                          clipBehavior: Clip.antiAlias,
-                                          child: InkWell(
-                                            onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (_)=>const DetailScreen(image: "assets/image/img_kurtka_yellow.png",)));
-                                            },
+                                      child: Material(
+                                        borderRadius: const BorderRadius.all(Radius.circular(10)),
+                                        clipBehavior: Clip.antiAlias,
+                                        child: InkWell(
+                                          onTap: (){
+                                            Navigator.of(context).push(MaterialPageRoute(builder: (_)=> DetailScreen(image: image,teg:teg)));
+                                          },
+                                          child: Hero(
+                                            tag: teg,
                                             child: Container(
                                               height: MediaQuery.sizeOf(context).height,
                                               width: MediaQuery.sizeOf(context).width,
@@ -442,7 +442,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       clipBehavior: Clip.antiAlias,
                                       child: InkWell(
                                         onTap: (){
-                                          Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const DetailScreen(image: "assets/image/img_kurtka_black.png",)));
+                                          Navigator.of(context).push(MaterialPageRoute(builder: (_)=>  DetailScreen(image: rasm,teg: "rer",)));
                                         },
                                         child: Container(
                                           height: MediaQuery.sizeOf(context).height,

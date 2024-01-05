@@ -76,7 +76,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                           clipBehavior: Clip.antiAlias,
                                           child: InkWell(
                                             onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const DetailScreen(image: "assets/image/img_kurtka_yellow.png")));
+                                              Navigator.of(context).push(MaterialPageRoute(builder: (_)=> DetailScreen(image: rasm,teg: "rer",)));
                                             },
                                             child: Container(
                                               height: MediaQuery.sizeOf(context).height,
@@ -206,7 +206,7 @@ class _ShopScreenState extends State<ShopScreen> {
                                           clipBehavior: Clip.antiAlias,
                                           child: InkWell(
                                             onTap: (){
-                                              Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const DetailScreen(image: "assets/image/img_jemfir.png")));
+                                              Navigator.of(context).push(MaterialPageRoute(builder: (_)=> DetailScreen(image: imag,teg: "rer",)));
                                             },
                                             child: Container(
                                               height: MediaQuery.sizeOf(context).height,

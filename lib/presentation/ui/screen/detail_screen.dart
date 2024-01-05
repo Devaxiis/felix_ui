@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class DetailScreen extends StatefulWidget {
-  final String image;
+  final AssetImage image;
+  final String teg;
 
-  const DetailScreen({super.key, required this.image});
+  const DetailScreen({super.key, required this.image, required this.teg});
 
   @override
   State<DetailScreen> createState() => _DetailScreenState();
@@ -29,12 +30,17 @@ class _DetailScreenState extends State<DetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Hero(
-                tag: "one",
+            SizedBox(
+              height: 400,
+              width: MediaQuery.sizeOf(context).width,
+              child: Hero(
+                tag: widget.teg,
                 child: Image(
-                  image: AssetImage(widget.image),
+                  image: widget.image,
                   fit: BoxFit.cover,
-                )),
+                ),
+              ),
+            ),
             const SizedBox(height: 32),
 
             /// #price
@@ -271,55 +277,48 @@ class _DetailScreenState extends State<DetailScreen> {
                             children: [
                               Expanded(
                                 flex: 4,
-                                child: Hero(
-                                  tag: "one",
-                                  child: Material(
-                                    borderRadius: const BorderRadius.all(
-                                        Radius.circular(10)),
-                                    clipBehavior: Clip.antiAlias,
-                                    child: InkWell(
-                                      onTap: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (_) =>
-                                                    const DetailScreen(
-                                                      image:
-                                                          "assets/image/img_jemfir.png",
-                                                    )));
-                                      },
-                                      child: Container(
-                                        height:
-                                            MediaQuery.sizeOf(context).height,
-                                        width: MediaQuery.sizeOf(context).width,
-                                        alignment: Alignment.topRight,
-                                        padding: const EdgeInsets.all(10),
-                                        decoration: const BoxDecoration(
-                                          image: DecorationImage(
-                                              image: AssetImage(
-                                                  "assets/image/img_jemfir.png"),
-                                              fit: BoxFit.cover),
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(10),
-                                          ),
+                                child: Material(
+                                  borderRadius: const BorderRadius.all(
+                                      Radius.circular(10)),
+                                  clipBehavior: Clip.antiAlias,
+                                  child: InkWell(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (_) => DetailScreen(image:widget.image,teg: "onr",)));
+                                    },
+                                    child: Container(
+                                      height:
+                                          MediaQuery.sizeOf(context).height,
+                                      width: MediaQuery.sizeOf(context).width,
+                                      alignment: Alignment.topRight,
+                                      padding: const EdgeInsets.all(10),
+                                      decoration: const BoxDecoration(
+                                        image: DecorationImage(
+                                            image: AssetImage(
+                                                "assets/image/img_jemfir.png"),
+                                            fit: BoxFit.cover),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(10),
                                         ),
-                                        child: Container(
-                                            height: 32,
-                                            width: 32,
-                                            padding: const EdgeInsets.all(6),
-                                            decoration: const BoxDecoration(
-                                                color: Color(0xff14181e),
-                                                borderRadius: BorderRadius.all(
-                                                    Radius.circular(8))),
-                                            child: const SizedBox(
+                                      ),
+                                      child: Container(
+                                          height: 32,
+                                          width: 32,
+                                          padding: const EdgeInsets.all(6),
+                                          decoration: const BoxDecoration(
+                                              color: Color(0xff14181e),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(8))),
+                                          child: const SizedBox(
+                                              height: 20,
+                                              width: 20,
+                                              child: Image(
+                                                image: AssetImage(
+                                                    "assets/icons/ic_heart.png"),
                                                 height: 20,
                                                 width: 20,
-                                                child: Image(
-                                                  image: AssetImage(
-                                                      "assets/icons/ic_heart.png"),
-                                                  height: 20,
-                                                  width: 20,
-                                                ))),
-                                      ),
+                                              ))),
                                     ),
                                   ),
                                 ),
